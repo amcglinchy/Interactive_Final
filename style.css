@@ -1,0 +1,143 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  /* font-size: 20px; */
+  padding: 1em;
+  /* background-color:white; */
+  }
+
+  /* html elements */
+  #header{
+    display: block;
+    margin: 4em 15em;
+    text-align: center;
+  }
+  h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    /* margin: 0.25em 5em; */
+  }
+  h2{
+    font-size: 24px;
+  }
+  #intro{
+    display: block;
+    margin: 4em 15em;
+    font-size: 18px;
+  }
+  p{
+    line-height: normal;
+  }
+  #map-title{
+    display: block;
+    margin: 0 10em;
+    font-size: 24px;
+    text-align: center;
+  }
+  #info{
+    display: block;
+    margin: 4em 15em;
+    font-size: 11px;
+    text-align: left;
+  }
+  .tooltippy {
+    position: relative;
+    display: inline;
+    border-bottom: 1px dotted black;
+  }
+  .tooltippy .tooltippytext {
+    visibility: hidden;
+    width: 200px;
+    background-color: whitesmoke;
+    color: black;
+    text-align: center;
+    border-radius: 6px;
+    font-size: 11px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+  }
+  .tooltippy:hover .tooltippytext {
+    visibility: visible;
+  }
+  #outro{
+    display: block;
+    margin: 4em 15em;
+    font-size: 18px;
+  }
+  /* links */
+a:link {
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:hover {
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:visited{
+  color: black;
+}
+  
+  /* d3.js elements */
+  path.state {
+    stroke: black;
+  }
+
+  .tooltip {
+    display: inline;
+    position: fixed;
+    font-size: 12px;
+    background-color: azure;
+    border-radius: 5%;
+    text-align: center;
+    padding: 5px 0;
+  }
+  .infoBox{
+    display: inline;
+    position: fixed;
+    font-size: 12px;
+    z-index: 20;
+    opacity: 1;
+    fill: white;
+    stroke-width: 1.5px;
+  }
+  .nta{
+    position: absolute;
+    z-index: -1;
+  }
+
+svg{
+  /* background-color: whitesmoke; */
+  display: block;
+  margin: auto;
+  display: block;
+}
+
+.txt0{
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 2px 2px white;
+}
+.txt1{
+  font-size: 12px;
+}
+.txt2{
+  font-size: 12px;
+}
+.txt3{
+  font-size: 12px;
+}
+.txt4{
+  font-size: 12px;
+}
+.txt5{
+  font-size: 12px;
+}
+.txt6{
+  font-size: 12px;
+}
+
+
+
+

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <title>Final Project</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;800&display=swap" rel="stylesheet">
+  </script>
+  </head>
+  <body>
+    <div id="header">
+      <h1>Mapping New York City's Incarcerated Population</h1>
+      <p>By Alex McGlinchy</p>
+    </div>
+
+    <div id="intro">
+      <p>
+        In 2010, New York State passed legislation to end <a href = "https://www.prisonersofthecensus.org/impact.html">prison gerrymandering</a>. What that looks like is: The New York State Legislative Task Force on Demographic Research and Reapportionment, in an amendment to the census, takes every person incarcerated in NY state prisons and reallocates them to their last known address. 
+      </p>
+      <p>
+        Before this legislation, each incarcerated individual in state prisons was counted as part of the community where the prison they're housed in is located. This inflates populations of communities with prisons in them, giving them more political influence and community resources. By reassigning incarcerated individuals to their homes, communities and political districts are more accurately represented which allows community resources to be equitably allocated.
+      </p>
+      <p>
+        Ultimately, the amendment data from the Task Force allows us to see where each incarcerated individual in New York state comes from. Not only is this information useful when drawing legislative districts, but it is incredibly useful in seeing the impact incarceration has on communities, and vice versa. 
+      </p>
+      <p>
+        In April 2020, there were 42,492 people incarcerated in New York State prisons, <span class=tooltippy>39,027 (91.8%)<span class=tooltippytext>This number does not include individuals incarcerated in New York state jails and federal corrections facilities, and those individuals who's last known address is out of state.
+        </span></span> of which were successfully geocoded to their last known address before entering a DOCCS facility. 16,314 (38%) of whom were from New York City. 
+      <p>
+        In an attempt to see how poverty is criminalized in the United States, I've mapped New York City's incarcerated population from April 2020 across the neighborhoods of the five boroughs, along with economic data such as poverty rate and housing burden rate. Here, poverty threshold is determined by the American Community Survey. Housing burden or 'unaffordable housing' is when a household spends 30% or more its income on housing costs. 
+      </p>
+      <p>
+        Is there a correlation between incarceration rates and economic factors such as, income, poverty and housing burden? Do lower income communities burdened by housing costs in NYC, see more of their neighbors affected by incarceration?
+      </p>
+    </div>
+      <div id="map-title">
+        <h2>16,314 incarcerated individuals from New York City.</h2>
+      </div>
+      <div id="container2"> </div>
+      <div id="container"> </div>
+    <div id="outro">
+      <p>
+        Note: There are other obvious factors to look at when talking about incarceration in the United States, such as race, health and education. By focusing solely on the economic factors, I do not wish to ignore other factors that contribute to incarceration, I only wish to emphasize the toll that economic inequality takes on our communities.
+      </p>
+    </div>
+    <div id="info">
+      <p>*Incarceration rate is per 10,000 residents.</p>
+       <p>Data:</p> 
+        <p>The New York State Legislative Task Force on Demographic Research and Reapportionment</p>
+        <p>American Community Survey 5 Year Estimates (2016-2020)</p>
+        <p>US Census (2020)</p>
+      </div>
+    <script src="../lib/d3.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
+    <script src="main_copy.js"></script>
+  </body>
+</html>
