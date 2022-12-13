@@ -51,7 +51,8 @@ function init() {
     
     geoPath = d3.geoPath().projection(projection);
 
-    let incarRate = state.geojson.features.map(d=>((d.properties.incar_pop_sum/d.properties.total_pop_sum_sum)*10000));
+    let incarRate = state.geojson.features.filter((d)=>(d.properties.total_pop_sum_sum>4000))
+    .map(d=>((d.properties.incar_pop_sum/d.properties.total_pop_sum_sum)*10000));
     
     for (let i = 0; i< incarRate.length; i++){
         if (incarRate[i] === null){
@@ -74,7 +75,7 @@ function init() {
         .attr("stroke", "black")
         .style("stroke-width", ".2")
         .attr("fill", "transparent")
-        .filter((d)=>(d.properties.total_pop_sum_sum>4000)) //taking out parks/cemetaries/islands
+        // .filter((d)=>(d.properties.total_pop_sum_sum>4000)) //taking out parks/cemetaries/islands
         .attr("fill",(d => colorScale((d.properties.incar_pop_sum/d.properties.total_pop_sum_sum)*10000)));
     
 
@@ -88,7 +89,7 @@ function init() {
         .shapePadding(0)
         .shapeWidth(30)
         .scale(colorScale)
-        .labels(["0", " ", " ", " ", "76.92"]);
+        .labels(["0", " ", " ", " ", "72.23"]);
 
  draw(); // calls the draw function
 }      
@@ -156,9 +157,9 @@ function draw() {
         .append("rect")
         .attr("class", "infoBox")
         .style("visibility", "hidden")
-        .attr('x', 20)
+        .attr('x', 40)
         .attr('y', 45)
-        .attr('width', 300)
+        .attr('width', 200)
         .attr('height', 120)
         .attr('stroke', 'black');
 
@@ -167,49 +168,49 @@ function draw() {
         .append("text")
         .attr("class", "txt0")
         .style("visibility", "hidden")
-        .attr('x', 30)
+        .attr('x', 45)
         .attr('y', 35);
 
     const boxText1 = svg
         .append("text")
         .attr("class", "txt1")
         .style("visibility", "hidden")
-        .attr('x', 30)
+        .attr('x', 45)
         .attr('y', 60);
     
     const boxText2 = svg
         .append("text")
         .attr("class", "txt2")
         .style("visibility", "hidden")
-        .attr('x', 30)
+        .attr('x', 45)
         .attr('y', 80);
 
     const boxText3 = svg
         .append("text")
         .attr("class", "txt3")
         .style("visibility", "hidden")
-        .attr('x', 30)
+        .attr('x', 45)
         .attr('y', 100);
 
     const boxText4 = svg
         .append("text")
         .attr("class", "txt4")
         .style("visibility", "hidden")
-        .attr('x', 30)
+        .attr('x', 45)
         .attr('y', 120);
 
     const boxText5 = svg
         .append("text")
         .attr("class", "txt5")
         .style("visibility", "hidden")
-        .attr('x', 30)
+        .attr('x', 45)
         .attr('y', 140);
 
     const boxText6 = svg
         .append("text")
         .attr("class", "txt6")
         .style("visibility", "hidden")
-        .attr('x', 30)
+        .attr('x', 45)
         .attr('y', 160);
         
 // Zoom/Reset/Clicked
@@ -277,7 +278,7 @@ function draw() {
             .text(`Incarcerated Population: ${d.properties.incar_pop_sum}`);
         boxText3
             .style("visibility", "visible")
-            .text(`Incarceration Rate*: ${((d.properties.incar_pop_sum/d.properties.total_pop_sum_sum)*10000).toFixed(2)}`);
+            .text(`Incarceration Rate: ${((d.properties.incar_pop_sum/d.properties.total_pop_sum_sum)*10000).toFixed(2)}`);
         boxText4
             .style("visibility", "visible")
             .text(`Median Income: $${d3.format(",")(Math.round(d.properties.med_inc_mean))}`);
@@ -287,24 +288,27 @@ function draw() {
         boxText6
             .style("visibility", "visible")
             .text(`Housing Burden: ${d.properties.housing_burden_mean.toFixed(2)}%`);
-            ;
+        // nta.filter((d)=>(d.properties.total_pop_sum_sum<4000)).style("fill","transparent");
+
     };
     
     function zoomed(event) {
         const {transform} = event;
         nta.attr("transform", transform);
-        nta.attr("stroke-width", 1 / transform.k);
+        nta.attr("stroke-width", 1 / transform.k)
+        nta.filter((d)=>(d.properties.total_pop_sum_sum<4000)).style("fill","transparent");
       }
 
     svg.call(zoom);
 
     nta
-      .on("mouseover", mouseOver)
-      .on("mousemove", mouseMove)
-      .on("mouseout", mouseOut)
-      .on("click", clicked)
-      .filter((d)=> (d.properties.total_pop_sum_sum<4000))
-    //   .attr("visibility", "hidden")
-      .style("stroke", null);
+        .on("mouseover", mouseOver)
+        .on("mousemove", mouseMove)
+        .on("mouseout", mouseOut)
+        .filter((d)=>(d.properties.total_pop_sum_sum>4000)) //taking out parks/cemetaries/islands
+        .on("click", clicked);
+
+    nta.filter((d)=>(d.properties.total_pop_sum_sum<4000)).style("fill","transparent");
+
 
 }
