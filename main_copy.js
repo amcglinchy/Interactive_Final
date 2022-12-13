@@ -168,7 +168,7 @@ function draw() {
         .append("text")
         .attr("class", "txt0")
         .style("visibility", "hidden")
-        .attr('x', 45)
+        .attr('x', 35)
         .attr('y', 35);
 
     const boxText1 = svg
