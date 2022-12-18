@@ -22,7 +22,7 @@ let state = {
 * Using a Promise.all([]), we can load more than one dataset at a time
 * */
 Promise.all([
- d3.json("/reprojected_nta.geojson")
+ d3.json("../data/reprojected_nta.geojson")
 ]).then(([geojson]) => {
  state.geojson = geojson;
 //   console.log("state: ", state);
